@@ -1,0 +1,99 @@
+/* Obsidian Callouts / Admonitions */
+.callout,
+div[data-callout] {
+    --callout-color: rgba(255, 255, 255, 0.2);
+    border-left: 4px solid var(--callout-color);
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    /* Increased padding */
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    /* Slightly more rounded */
+}
+
+div[data-callout="note"],
+div[data-callout="info"],
+.callout.callout-note,
+.callout.callout-info {
+    --callout-color: #007aff;
+}
+
+div[data-callout="tip"],
+div[data-callout="success"],
+.callout.callout-tip,
+.callout.callout-success {
+    --callout-color: #34c759;
+}
+
+div[data-callout="warning"],
+div[data-callout="caution"],
+.callout.callout-warning,
+.callout.callout-caution {
+    --callout-color: #ff9500;
+}
+
+div[data-callout="failure"],
+div[data-callout="danger"],
+div[data-callout="error"],
+div[data-callout="bug"],
+.callout.callout-failure,
+.callout.callout-danger,
+.callout.callout-error,
+.callout.callout-bug {
+    --callout-color: #ff3b30;
+}
+
+div[data-callout="example"],
+.callout.callout-example {
+    --callout-color: #af52de;
+}
+
+div[data-callout="quote"],
+.callout.callout-quote {
+    --callout-color: #8e8e93;
+}
+
+.callout-title {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    /* Increased spacing */
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--callout-color);
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 1.0;
+}
+
+.callout-content {
+    opacity: 0.95;
+    font-size: 1rem;
+    line-height: 1.7;
+    padding-left: 0.25rem;
+    /* Slight internal padding for alignment */
+}
+
+.callout-content> :first-child {
+    margin-top: 0;
+}
+
+.callout-content> :last-child {
+    margin-bottom: 0;
+}
+
+/* Wiki Links */
+.writeup-content a[href^="/notes/"],
+.canvas-node-inner a[href^="/notes/"] {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.5);
+    transition: all 0.2s ease;
+}
+
+.writeup-content a[href^="/notes/"]:hover,
+.canvas-node-inner a[href^="/notes/"]:hover {
+    border-bottom: 1px solid #fff;
+    background: rgba(255, 255, 255, 0.1);
+}

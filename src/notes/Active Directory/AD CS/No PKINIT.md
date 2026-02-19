@@ -1,0 +1,2 @@
+In some setups, an attacker might be able to grab a certificate but won’t be able to use it for Kerberos pre-authentication as certain targets (like a DC machine account) because the KDC doesn’t allow the needed EKU. That’s where the [PassTheCert](https://github.com/AlmondOffSec/PassTheCert/) tool comes in. It lets you use a certificate directly for LDAPS authentication and carry out actions like resetting passwords or assigning DCSync privileges. 
+

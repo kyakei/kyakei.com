@@ -1,0 +1,883 @@
+/* ===================================
+   WRITEUPS PAGE STYLES — B&W MONOCHROME
+   =================================== */
+
+.writeups-page {
+    min-height: 100vh;
+    background: #0a0a0a;
+    color: #e0e0e0;
+    font-family: 'Space Grotesk', sans-serif;
+    padding: 3rem 12%;
+}
+
+/* ---- NAVIGATION ---- */
+.writeups-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+.writeups-nav .back-link {
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.writeups-nav .back-link:hover {
+    color: white;
+}
+
+/* ---- SEARCH BAR ---- */
+.search-wrapper {
+    position: relative;
+    width: 280px;
+}
+
+.search-wrapper input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.6rem 1rem 0.6rem 2.5rem;
+    color: white;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-wrapper input::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.search-wrapper input:focus {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.search-wrapper .search-icon {
+    position: absolute;
+    left: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.25);
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+}
+
+/* ---- PAGE HEADER ---- */
+.writeups-header {
+    margin-bottom: 3rem;
+}
+
+.writeups-header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+}
+
+.writeups-header .subtitle {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.writeups-header .post-count {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+/* ---- WRITEUP LIST ---- */
+.writeups-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* ---- WRITEUP ROW ---- */
+.writeup-row {
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+}
+
+.writeup-row:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.writeup-row:hover {
+    background: rgba(255, 255, 255, 0.02);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 0 -1rem;
+}
+
+.writeup-row .row-date {
+    color: rgba(255, 255, 255, 0.25);
+    font-size: 0.8rem;
+    font-family: 'Courier New', monospace;
+    white-space: nowrap;
+}
+
+.writeup-row .row-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.writeup-row .row-title {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: white;
+    transition: color 0.2s ease;
+}
+
+.writeup-row:hover .row-title {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.writeup-row .row-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.writeup-row .tag {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 0.7rem;
+    font-family: 'Courier New', monospace;
+    text-transform: lowercase;
+}
+
+.writeup-row .tag::before {
+    content: '#';
+}
+
+.writeup-row .row-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.writeup-row .platform-pill {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.5);
+    padding: 0.25rem 0.65rem;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+.writeup-row .difficulty-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.writeup-row .arrow {
+    color: rgba(255, 255, 255, 0.1);
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+}
+
+.writeup-row:hover .arrow {
+    color: rgba(255, 255, 255, 0.5);
+    transform: translateX(4px);
+}
+
+/* ---- LOCKED ROW ---- */
+.writeup-row.locked {
+    cursor: not-allowed;
+    opacity: 0.4;
+}
+
+.writeup-row.locked:hover {
+    background: transparent;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+}
+
+.writeup-row.locked .row-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.lock-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.locked-badge {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.35);
+    padding: 0.2rem 0.5rem;
+    border-radius: 100px;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* ---- LOCKED CONTENT (Post Page) ---- */
+.locked-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 0;
+    gap: 1rem;
+}
+
+.locked-content-icon {
+    width: 48px;
+    height: 48px;
+    color: rgba(255, 255, 255, 0.15);
+    margin-bottom: 0.5rem;
+}
+
+.locked-content h2 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.locked-content p {
+    color: rgba(255, 255, 255, 0.25);
+    font-size: 0.9rem;
+}
+
+/* No results */
+.no-results {
+    text-align: center;
+    padding: 4rem 0;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+}
+
+/* ---- NOTES SIDEBAR LAYOUT ---- */
+.notes-layout {
+    display: flex;
+    min-height: 100vh;
+    background: #0a0a0a;
+    color: #e0e0e0;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.notes-sidebar {
+    position: relative;
+    width: 220px;
+    flex-shrink: 0;
+    padding: 2rem 1.25rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    transition: width 0.25s ease, padding 0.25s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.notes-sidebar.collapsed {
+    width: 48px;
+    padding: 2rem 0.5rem;
+    overflow: hidden;
+}
+
+.sidebar-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 1.5rem;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.4);
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+    transition: all 0.2s ease;
+}
+
+.sidebar-toggle svg {
+    width: 16px;
+    height: 16px;
+}
+
+.sidebar-toggle:hover {
+    color: white;
+}
+
+.notes-sidebar.collapsed .sidebar-toggle {
+    position: static;
+    margin: 0 auto;
+}
+
+.notes-sidebar .back-link {
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.notes-sidebar .back-link:hover {
+    color: white;
+}
+
+.sidebar-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1.25rem;
+}
+
+.sidebar-notes-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.sidebar-notes-link:hover {
+    color: white;
+}
+
+.sidebar-folders {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Folder group in sidebar */
+.sidebar-folder-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-folder-label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.25rem 0;
+    margin-bottom: 0.25rem;
+    background: none;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.2s ease;
+}
+
+.sidebar-folder-label:hover {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.folder-icon-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.folder-chevron {
+    width: 12px;
+    height: 12px;
+    transition: transform 0.2s ease;
+    opacity: 0.5;
+}
+
+.folder-collapsed .folder-chevron {
+    transform: rotate(-90deg);
+}
+
+.sidebar-folder-group.folder-collapsed .sidebar-notes {
+    display: none;
+}
+
+.sidebar-folder-label .folder-count {
+    margin-left: auto;
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.15);
+}
+
+/* Individual note links in sidebar */
+.sidebar-notes {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-note-link {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.5rem 0.3rem 1.4rem;
+    border-radius: 4px;
+    transition: all 0.15s ease;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sidebar-note-link:hover {
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.sidebar-note-link.active {
+    color: white;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-type-dot {
+    color: rgba(255, 255, 255, 0.25);
+    font-size: 0.65rem;
+    flex-shrink: 0;
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 2rem;
+    text-align: left;
+}
+
+.sidebar-attribution {
+    display: block;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 0.65rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.sidebar-attribution:hover {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: underline;
+}
+
+/* All Notes bottom link */
+.sidebar-all-notes-link {
+    display: block;
+    color: rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+    font-size: 0.75rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    transition: color 0.2s ease;
+}
+
+.sidebar-all-notes-link:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Main content area */
+.notes-main {
+    flex: 1;
+    padding: 2rem 4%;
+    min-width: 0;
+}
+
+.notes-top-bar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+/* ---- COLLAPSIBLE FOLDER SECTIONS ---- */
+.notes-folder {
+    margin-bottom: 2rem;
+}
+
+.folder-heading-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.35);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: color 0.2s ease;
+}
+
+.folder-heading-btn:hover {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.folder-heading-count {
+    margin-left: auto;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.15);
+    font-weight: 400;
+}
+
+.chevron {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.chevron.collapsed {
+    transform: rotate(-90deg);
+}
+
+.folder-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* Canvas type badge */
+.type-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.35);
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.65rem;
+    font-family: 'Courier New', monospace;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+/* ===================================
+   INDIVIDUAL WRITEUP POST — B&W
+   =================================== */
+
+.writeup-post {
+    min-height: 100vh;
+    background: #0a0a0a;
+    color: #d4d4d4;
+    font-family: 'Space Grotesk', sans-serif;
+    padding: 3rem 20%;
+}
+
+.writeup-post .back-link {
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+    display: inline-block;
+    margin-bottom: 3rem;
+}
+
+.writeup-post .back-link:hover {
+    color: white;
+}
+
+/* Post header */
+.writeup-post .post-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.writeup-post .post-header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.5px;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.writeup-post .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.writeup-post .post-meta .platform-badge {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.5);
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.writeup-post .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1rem;
+}
+
+.writeup-post .post-tags .tag {
+    color: rgba(255, 255, 255, 0.25);
+    font-size: 0.7rem;
+    font-family: 'Courier New', monospace;
+}
+
+.writeup-post .post-tags .tag::before {
+    content: '#';
+}
+
+/* Markdown content */
+.writeup-content h1 {
+    font-size: 2rem;
+    color: white;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.writeup-content h2 {
+    font-size: 1.5rem;
+    color: white;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.writeup-content h3 {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.writeup-content p {
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.writeup-content strong {
+    color: white;
+}
+
+.writeup-content a {
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(255, 255, 255, 0.3);
+}
+
+.writeup-content a:hover {
+    text-decoration-color: white;
+}
+
+.writeup-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    display: block;
+}
+
+/* Code blocks */
+.writeup-content pre {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.writeup-content pre code {
+    font-family: 'Courier New', monospace;
+    color: rgba(255, 255, 255, 0.8);
+    background: none;
+    padding: 0;
+    border: none;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* Inline code */
+.writeup-content code {
+    font-family: 'Courier New', monospace;
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+/* Tables */
+.writeup-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+.writeup-content th {
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.6rem 1rem;
+    text-align: left;
+    font-weight: 500;
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.writeup-content td {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+/* Lists */
+.writeup-content ul,
+.writeup-content ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.writeup-content li {
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 0.25rem;
+}
+
+/* Blockquotes */
+.writeup-content blockquote {
+    border-left: 2px solid rgba(255, 255, 255, 0.15);
+    padding-left: 1.25rem;
+    margin: 1.5rem 0;
+    color: rgba(255, 255, 255, 0.45);
+    font-style: italic;
+}
+
+/* Horizontal rule */
+.writeup-content hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    margin: 2.5rem 0;
+}
+
+/* ===================================
+   WRITEUPS MOBILE RESPONSIVE
+   =================================== */
+
+@media (max-width: 768px) {
+    .writeups-page {
+        padding: 1.5rem 5%;
+    }
+
+    .writeups-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .search-wrapper {
+        width: 100%;
+    }
+
+    .writeups-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .writeup-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding: 1.25rem 0;
+    }
+
+    .writeup-row .row-meta {
+        display: none;
+    }
+
+    .writeup-row .row-date {
+        font-size: 0.75rem;
+    }
+
+    .writeup-post {
+        padding: 1.5rem 5%;
+    }
+
+    .writeup-post .post-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .writeup-content pre {
+        font-size: 0.75rem;
+        padding: 1rem;
+    }
+
+    /* Notes sidebar → horizontal on mobile */
+    .notes-layout {
+        flex-direction: column;
+    }
+
+    .notes-sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 1rem 5%;
+    }
+
+    .sidebar-folders {
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 0.5rem;
+    }
+
+    .sidebar-folder-btn {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .notes-main {
+        padding: 1.5rem 5%;
+    }
+
+    .notes-top-bar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

@@ -1,0 +1,395 @@
+@import './components/ObsidianStyles.css';
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url("https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700display=swap");
+
+/* Intro Screen */
+.intro-screen {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Main Container */
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    position: relative;
+    /* Context for absolute footer */
+}
+
+/* Intro Container */
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: -15vh;
+    /* Move it a bit above center */
+    gap: 0.25rem;
+    /* Reduced to ~1 grid block */
+    /* Consistent vertical spacing */
+}
+
+.intro {
+    display: flex;
+    flex-direction: row;
+    /* Side-by-side */
+    justify-content: flex-start;
+    align-items: baseline;
+    /* Strictly align baselines */
+    gap: 0.8rem;
+    /* Gap between Hi and Name */
+    width: 100%;
+    /* margin-top removed */
+}
+
+.name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 5rem;
+    /* Reduced from 6rem */
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1;
+    /* Reset line height to ensure baseline is predictable */
+    margin: 0;
+}
+
+.sub-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.5rem;
+    /* Increased font size as requested */
+    font-weight: 400;
+    color: #ffffff;
+    /* White text */
+    margin: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.changing-name {
+    font-weight: 600;
+    color: #ffffff;
+    /* White text */
+}
+
+/* Profession Subtext */
+.profession {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    /* Subtle white */
+    margin: 0;
+    margin-left: 0.2rem;
+    /* Slight alignment tweak */
+}
+
+/* Certifications Section */
+.certifications-container {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
+    margin-left: 0.2rem;
+    /* Align with profession */
+}
+
+.cert-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.cert-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 0.2rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.5;
+}
+
+.cert-item {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    line-height: 1.4;
+}
+
+
+
+
+
+/* Top Navigation */
+.top-nav {
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 2rem;
+    z-index: 20;
+}
+
+.top-nav a {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+.top-nav a:hover {
+    color: white;
+}
+
+.top-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: white;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.top-nav a:hover::after {
+    width: 100%;
+}
+
+
+
+/* Heart Grid */
+
+
+/* Pixel Grid Generic */
+.pixel-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.pixel-row {
+    display: flex;
+    gap: 0;
+}
+
+.pixel-cell {
+    width: 20px;
+    /* Slightly smaller to fit 3 stacks better? */
+    height: 20px;
+    background: transparent;
+}
+
+.pixel-cell.active {
+    background: #00ff41;
+    box-shadow: 0 0 8px #00ff41, 0 0 12px #00ff41;
+    opacity: 0.5;
+    transition: all 0.2s ease;
+}
+
+.pixel-cell.active.glowing {
+    opacity: 1;
+    box-shadow: 0 0 25px #00ff41, 0 0 50px #00ff41, 0 0 75px #00ff41, 0 0 100px #00ff41;
+}
+
+/* Social Footer */
+.social-footer {
+    position: absolute;
+    bottom: 2rem;
+    left: 10%;
+    /* Match container padding */
+    display: flex;
+    gap: 2rem;
+    z-index: 10;
+}
+
+.social-footer a {
+    font-family: 'Space Grotesk', sans-serif;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.social-footer a svg {
+    fill: white;
+    width: 1em;
+    height: 1em;
+}
+
+.social-footer a:hover {
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ===================================
+   MOBILE RESPONSIVE STYLES
+   =================================== */
+
+@media (max-width: 768px) {
+
+    /* Container adjustments */
+    .container {
+        padding: 0 5%;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* Intro container - left align everything */
+    .intro-container {
+        align-items: flex-start;
+        text-align: left;
+        margin-top: 0;
+        gap: 1rem;
+        z-index: 10;
+        position: relative;
+    }
+
+    .certifications-container {
+        align-self: flex-start;
+        text-align: left;
+        /* cleanup: inherit alignment from parent */
+        margin-left: 0;
+    }
+
+    /* Typography scaling */
+    .name {
+        font-size: 4rem;
+        line-height: 1;
+    }
+
+    .sub-text {
+        font-size: 1.2rem;
+    }
+
+    .changing-name {
+        font-size: 1.2rem;
+    }
+
+    .profession {
+        font-size: 1rem;
+        text-align: left;
+    }
+
+    /* Hero nav — stack on mobile */
+    .hero-nav {
+        flex-direction: column;
+        align-self: center;
+    }
+
+    /* Pixel art - smaller */
+    .pixel-cell {
+        width: 12px;
+        height: 12px;
+    }
+
+    /* Hide some pixel art or reposition */
+    .pixel-grid:nth-of-type(1) {
+        /* Ghost - top right, smaller */
+        top: 10% !important;
+        right: 5% !important;
+        opacity: 0.4 !important;
+    }
+
+    .pixel-grid:nth-of-type(2) {
+        /* Invader - hide on mobile */
+        display: none;
+    }
+
+    .pixel-grid:nth-of-type(3) {
+        /* Heart - same as desktop, just repositioned behind Hi */
+        display: flex !important;
+        top: 36% !important;
+        left: auto !important;
+        right: auto !important;
+        left: 22% !important;
+        transform: translateX(-50%) !important;
+        opacity: 0.2 !important;
+        z-index: 0 !important;
+        pointer-events: none;
+    }
+
+    .pixel-grid:nth-of-type(3) .pixel-cell {
+        /* Smaller than desktop but keeps shape */
+        width: 11px;
+        height: 11px;
+    }
+
+    .pixel-grid:nth-of-type(4) {
+        /* Terminal - top left */
+        top: 10% !important;
+        left: 5% !important;
+        opacity: 0.4 !important;
+    }
+
+    /* Social footer - center and smaller */
+    .social-footer {
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.75rem;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 90%;
+    }
+
+    .social-footer a,
+    .social-footer .separator {
+        font-size: 0.75rem;
+    }
+}
+
+/* Extra small screens (phones in portrait) */
+@media (max-width: 480px) {
+    .name {
+        font-size: 3rem;
+    }
+
+    .sub-text {
+        font-size: 1rem;
+    }
+
+    .changing-name {
+        font-size: 1rem;
+    }
+
+    .profession {
+        font-size: 0.9rem;
+    }
+
+    .hero-nav-card {
+        padding: 0.6rem 1rem;
+    }
+
+    .hero-nav-sub {
+        display: none;
+    }
+
+    .pixel-cell {
+        width: 10px;
+        height: 10px;
+    }
+}

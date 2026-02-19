@@ -1,0 +1,29 @@
+/* ===================================
+   SMOOTH CURSOR — MagicUI style
+   =================================== */
+
+/* Hide default cursor globally */
+*,
+*::before,
+*::after {
+    cursor: none !important;
+}
+
+/* Keep text cursor for inputs */
+input,
+textarea,
+select,
+[contenteditable="true"] {
+    cursor: text !important;
+}
+
+/* Hide on mobile / touch devices */
+@media (hover: none),
+(pointer: coarse) {
+
+    *,
+    *::before,
+    *::after {
+        cursor: auto !important;
+    }
+}

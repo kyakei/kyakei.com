@@ -1,0 +1,210 @@
+/* ===================================
+   CANVAS RENDERER — Clean rewrite
+   =================================== */
+
+.canvas-wrapper {
+    margin-top: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    overflow: hidden;
+    background: #0a0a0a;
+}
+
+/* Toolbar */
+.canvas-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.5rem 0.75rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.canvas-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    padding: 0.3rem 0.65rem;
+    border-radius: 5px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    line-height: 1;
+}
+
+.canvas-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.85);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.canvas-zoom-label {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 0.7rem;
+    font-family: 'Courier New', monospace;
+    margin-left: 0.5rem;
+    min-width: 3ch;
+}
+
+/* Container — nearly fullscreen for big canvases */
+.canvas-container {
+    width: 100%;
+    height: calc(100vh - 260px);
+    min-height: 400px;
+    overflow: hidden;
+    cursor: grab;
+    position: relative;
+    user-select: none;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.015) 0%, transparent 70%),
+        #0a0a0a;
+}
+
+.canvas-container.grabbing {
+    cursor: grabbing;
+}
+
+/* The world — holds all nodes/edges at 1:1 layout, scaled via CSS transform */
+.canvas-world {
+    position: absolute;
+    top: 0;
+    left: 0;
+    will-change: transform;
+}
+
+/* Edges */
+.canvas-edges {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+/* Nodes */
+.canvas-node {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* allow growth */
+    height: auto !important;
+}
+
+.canvas-node:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.canvas-node-inner {
+    padding: 8px 12px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Node text styling */
+.canvas-node-inner p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 13px;
+    line-height: 1.35;
+    word-break: break-word;
+}
+
+.canvas-node-inner h1,
+.canvas-node-inner h2,
+.canvas-node-inner h3 {
+    margin: 0 0 2px 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    border: none;
+    padding: 0;
+}
+
+.canvas-node-inner h1 {
+    font-size: 15px;
+}
+
+.canvas-node-inner h2 {
+    font-size: 14px;
+}
+
+.canvas-node-inner h3 {
+    font-size: 13px;
+}
+
+.canvas-node-inner ul,
+.canvas-node-inner ol {
+    margin: 2px 0;
+    padding-left: 16px;
+}
+
+.canvas-node-inner li {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.35;
+    margin-bottom: 1px;
+}
+
+.canvas-node-inner a {
+    color: rgba(130, 170, 255, 0.7);
+    text-decoration: none;
+}
+
+.canvas-node-inner code {
+    font-family: 'Courier New', monospace;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.canvas-node-inner pre {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    padding: 6px 8px;
+    margin: 4px 0;
+    overflow-x: auto;
+}
+
+.canvas-node-inner pre code {
+    background: none;
+    padding: 0;
+    font-size: 11px;
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 768px) {
+    .canvas-container {
+        height: calc(100vh - 300px);
+        min-height: 300px;
+    }
+}
+
+/* Attribution */
+.canvas-attribution {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0.75rem;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+    font-family: 'Space Grotesk', sans-serif;
+    transition: color 0.2s ease;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+.canvas-attribution:hover {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: underline;
+}
