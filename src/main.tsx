@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
-import WriteupsList from './pages/WriteupsList.tsx'
+
 import WriteupPost from './pages/WriteupPost.tsx'
 import NotesList from './pages/NotesList.tsx'
 import NotePost from './pages/NotePost.tsx'
